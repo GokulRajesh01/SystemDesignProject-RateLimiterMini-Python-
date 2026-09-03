@@ -1,0 +1,19 @@
+Functional Requirement :
+1. The system shall allow a maximum of 5 requests per user within a rolling 60-second window.
+2. The system shall identify requests using a unique user identifier provided with each request.
+3. Requests exceeding the rate limit shall be rejected with HTTP 429 (Too Many Requests) and an appropriate error message.
+4. The system shall maintain an independent list of request timestamps for each user.
+
+Scope definition and implementation constraints:
+1. The system shall be implemented using Python Flask.
+2. An in-memory dictionary shall be used to store request timestamps for each user.
+3. Python's time module shall be used to record request timestamps.
+4. The system shall expose only the GET /data endpoint.
+5. Authentication and authorization are outside the scope of this implementation.
+
+API End points - 
+1. GET /data - The endpoint that will be protected.
+
+Assumptions :
+1. There will be a in-memory mapping in the form "user_id" : [timestamp1, timestamp2, timestamp3, timestamp4, timestamp5]
+2. Each request is assumed to contain a user identifier.
